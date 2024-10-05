@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
+      background-color: #f3f3f3;
       display: flex;
       flex-direction: column;
       align-items: center; /* Center horizontally */
@@ -20,7 +20,7 @@
     /* Top Navbar */
     .navbar {
       width: 100%;
-      background-color: #0f0f0f;
+      background-color: #333;
       overflow: hidden;
       position: fixed;
       top: 0;
@@ -179,7 +179,7 @@
       grid-row: 11;
     }
 
-    .row-11-right {
+    .row -11-right {
       grid-column: 3;
       grid-row: 11;
     }
@@ -333,7 +333,7 @@
     }
 
     .nav-link.active[data-page="3"] {
-      background-color: rgb(32, 58, 44);
+      background-color: rgb(50, 59, 58);
     }
 
     .nav-link.active[data-page="4"] {
@@ -354,7 +354,7 @@
     }
 
     .container button.active[data-page="3"] {
-      background-color: rgb(32, 58, 44);
+      background-color: rgb(50, 59, 58);
     }
 
     .container button.active[data-page="4"] {
@@ -363,9 +363,19 @@
 
     .mode-button {
       float: right;
-      height: 50px;
-      width: 50px;
+      padding: 10px 15px;
       font-size: 16px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
     }
   </style>
 </head>
@@ -373,7 +383,7 @@
 
 <!-- Navbar -->
 <div class="navbar">
-  <a href="#" class="nav-link active" data-page="0">Lightbearer</a>
+  <a href="#" class="nav-link active " data-page="0">Lightbearer</a>
   <a href="#" class="nav-link" data-page="1">Wilder</a>
   <a href="#" class="nav-link" data-page="2">Mauler</a>
   <a href="#" class ="nav-link" data-page="3">Graveborn</a>
@@ -388,6 +398,11 @@
 <div class="total" id="total">Combined Total: 0</div>
 <div class="page-total" id="page-total">Page Total: 0</div>
 <div class="clicked-buttons" id="clicked-buttons">Clicked Buttons: 0</div>
+
+<!-- Footer -->
+<div class="footer">
+  Made by Soap Cracker
+</div>
 
 <script>
   const gridContainer = document.getElementById('grid-container');
@@ -446,14 +461,14 @@
   // Function to update total display
   function updateTotalDisplay() {
     combinedTotalDisplay.textContent = `Combined Total: ${combinedTotal}`;
-    const navLinks = document.querySelectorAll('.nav-link');
+ const navLinks = document.querySelectorAll('.nav-link');
     const currentPageName = navLinks[currentPage].textContent;
     pageTotalDisplay.textContent = `${currentPageName} Total: ${pageTotals[currentPage]}`;
     clickedButtonsDisplay.textContent = `${currentPageName} Tiles allocated: ${clickedButtons[currentPage]}`;
   }
 
   // Function to create buttons dynamically for the grid
- function createGrid(pageIndex) {
+function createGrid(pageIndex) {
     gridContainer.innerHTML = ''; // Clear the grid first
 
     buttonValues.forEach((buttonData, index) => {
